@@ -1,0 +1,420 @@
+/* =============================================
+   PRINCIPIA – CSS UNIFICADO (v1.1)
+   -------------------------------------------------
+   Estrutura:
+   1.  Reset & Variáveis Globais
+   2.  Utilidades & Containers
+   3.  Componentes Compartilhados (Header, Menu, Botões, Footer)
+   4.  Seções Comuns do Index
+   5.  Página EMPRESA       (container1)
+   6.  Página PORTFÓLIO     (container2)
+   7.  Página CONTATO       (container3)
+   8.  Página TRABALHE      (container4)
+   9.  Página EXTRA         (container5)
+  10.  Responsividade
+   -------------------------------------------------
+   ➜  IMPORTANTE
+   ►  Substitua a classe "container" em cada página pelo respectivo
+      containerX indicado nos títulos acima (ex.: container1 na Empresa).
+   ►  O index pode permanecer usando .container, pois ele já é único.
+   =============================================*/
+
+/* ===== 1. RESET & VARIÁVEIS GLOBAIS ============================= */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --marrom: #854F2E;
+  --dourado: #E4C377;
+  --preto: #222;
+  --branco: #fff;
+  --cinza-bg: #f4f4f4;
+  --fonte-base: 'Georgia', 'Times New Roman', serif;
+  --fonte-ui: 'Segoe UI', sans-serif;
+}
+
+/* ===== 2. UTILIDADES & CONTAINERS ============================== */
+body {
+  font-family: var(--fonte-base);
+  line-height: 1.6;
+  background-color: var(--marrom);
+  color: var(--branco);
+}
+body.light {
+  background-color: var(--cinza-bg);
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px;
+}
+
+.container1 {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 15px;
+}
+
+.container2 {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 15px;
+}
+
+.container3,
+.container4 {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.container5 {
+  max-width: 1200px;
+  margin: auto;
+  padding: 3rem 1.5rem;
+ 
+}
+
+/* ===== 3. COMPONENTES COMPARTILHADOS ============================ */
+/* --- Cabeçalho & Navegação ------------------------------------- */
+header {
+  background-color: var(--dourado);
+}
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 15px;
+}
+.logo { height: 60px; }
+.menu { list-style: none; display: flex; gap: 15px; }
+.menu li a {
+  font-family: Verdana, Geneva, sans-serif;
+  font-weight: bold;
+  color: var(--branco);
+  text-decoration: none;
+  padding: 10px;
+  transition: background .2s;
+}
+.menu li a:hover {
+  background-color: rgba(255, 255, 255, .2);
+  border-radius: 5px;
+}
+
+/* --- Botões ----------------------------------------------------- */
+.btn-primary,
+.btn-ver-produtos,
+.btn-detalhes {
+  display: inline-block;
+  background-color: var(--dourado);
+  color: var(--marrom);
+  padding: 12px 24px;
+  font-weight: bold;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background .3s ease;
+}
+.btn-primary:hover,
+.btn-ver-produtos:hover,
+.btn-detalhes:hover { background-color: #d8b25d; }
+
+/* --- Rodapé ----------------------------------------------------- */
+footer {
+  background-color: var(--preto);
+  color: var(--branco);
+  text-align: center;
+  padding: 20px 15px;
+  font-size: .95rem;
+  font-family: var(--fonte-base);
+}
+
+/* ===== 4. SEÇÕES COMUNS DO INDEX =============================== */
+.hero {
+  background-image: url("imagens/fundo3.webp");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+.hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 1;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 700px; padding: 20px;
+}
+.hero-content h1 { font-size: 3rem; margin-bottom: 20px; color: var(--branco); }
+.hero-content p  { font-size: 1.2rem; color: var(--branco); }
+
+.info-section {
+  background-color: var(--dourado);
+  padding: 60px 15px;
+  color: #333;
+}
+.info-content { display:flex; gap:30px; flex-wrap:wrap; align-items:flex-start; }
+.info-image   { width:300px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,.2); flex-shrink:0; }
+.info-texto   { flex:1; }
+.info-texto h2 { font-size:2rem; margin-bottom:10px; color:var(--marrom); }
+
+.cta-produtos {
+  background: linear-gradient(135deg, var(--marrom) 0%, #A66A44 100%);
+  background-image: url("imagens/textura-fina.png"); /* textura opcional */
+  background-repeat: repeat;
+  padding: 60px 15px;
+  text-align: center;
+  color: var(--branco);
+}
+.cta-titulo { font-size:2rem; margin-bottom:10px; }
+
+/* ===== 5. PÁGINA EMPRESA (container1) ========================== */
+/* Títulos com barra lateral */
+h2 {
+  font-size:2rem; color:var(--dourado); margin-bottom:20px; position:relative; padding-left:12px;
+}
+h2::before { content:""; position:absolute; left:0; top:10px; height:80%; width:5px; background:var(--dourado); border-radius:2px; }
+
+.proposito,
+.compromisso,
+.principios ul {
+  background-color: var(--branco);
+  color:#333;
+  border-radius:12px;
+  padding:40px 20px;
+  margin-bottom:40px;
+  list-style: disc inside;
+  font-size:1.1rem;
+}
+
+.cta-produtos-empresa {
+  background: linear-gradient(135deg, var(--marrom), #a8673b);
+  color: var(--branco);
+  text-align: center;
+  padding: 50px 20px;
+  border-radius: 15px;
+  margin-top: 50px;
+}
+
+/* ===== 6. PÁGINA PORTFÓLIO (container2) ======================== */
+.portfolio {
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+  padding: 40px 20px; position: relative; overflow: hidden;
+}
+.portfolio::before { content:""; position:absolute; inset:0; background-color:rgba(133,79,46,.6); z-index:0; }
+.portfolio > * { position:relative; z-index:1; }
+
+.portfolio-intro { text-align:center; padding:60px 20px; color:var(--dourado); }
+.portfolio-intro h1 { font-size:2.5rem; margin-bottom:10px; }
+.portfolio-intro p  { font-size:1.2rem; font-family:var(--fonte-base); }
+
+.produtos-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:30px; padding:40px 0;
+}
+.produto-card {
+  background: var(--branco);
+  border-radius:12px;
+  box-shadow:0 6px 12px rgba(0,0,0,.15);
+  padding:20px; text-align:center; color:#333; transition:transform .2s;
+}
+.produto-card:hover { transform:translateY(-5px); }
+.produto-card img { width:100%; border-radius:10px; margin-bottom:15px; }
+.produto-card h3 { font-size:1.2rem; color:var(--marrom); margin-bottom:10px; }
+
+/* ===== 7. PÁGINA CONTATO (container3) ========================== */
+.contact-info, .contact-form {
+  background: var(--branco);
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.1);
+}
+.contact-info h1 { color:var(--marrom); margin-bottom:.5rem; }
+.contact-info h2, .contact-form h2 { color:var(--marrom); margin:1.5rem 0 .5rem; }
+
+.contact-form form { display:flex; flex-direction:column; }
+.contact-form input,
+.contact-form textarea {
+  margin-bottom:1rem; padding:.8rem; border:1px solid #ccc; border-radius:4px; font-size:1rem;
+}
+.contact-form button {
+  background: var(--dourado); color:#333; border:none; padding:.8rem; border-radius:4px; font-weight:bold; cursor:pointer;
+}
+.contact-form button:hover { background:#d2b063; }
+
+body.quem-somos {
+  background-color: var(--marrom); /* fundo marrom da página */
+  color: var(--branco); /* texto padrão branco no corpo */
+}
+
+body.quem-somos .contact-info p,
+body.quem-somos .contact-form p {
+  color: #333;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+
+/* ===== 8. PÁGINA TRABALHE (container4) ========================= */
+.intro, .cultura, .vagas, .formulario {
+  background: var(--branco);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,.05);
+}
+.vaga {
+  background: #f9f9f9;
+  border-left: 4px solid var(--dourado);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+body.trabalhe .container4 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: stretch;
+}
+body.trabalhe .intro,
+body.trabalhe .cultura,
+body.trabalhe .vagas,
+body.trabalhe .formulario {
+  width: 100%;
+  background-color: var(--branco);
+  color: #333;
+}
+body.trabalhe .intro h1,
+body.trabalhe .cultura h2,
+body.trabalhe .vagas h2,
+body.trabalhe .formulario h2 {
+  color: var(--marrom);
+}
+
+
+body.trabalhe .formulario form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+body.trabalhe .formulario input,
+body.trabalhe .formulario textarea {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+body.trabalhe .formulario input[type="text"],
+body.trabalhe .formulario input[type="email"],
+body.trabalhe .formulario textarea {
+  flex: 1 1 300px;
+  min-width: 250px;
+}
+
+body.trabalhe .formulario input[type="file"] {
+  margin-top: 0.5rem;
+}
+
+body.trabalhe .formulario input[type="submit"] {
+  background-color: var(--marrom);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+body.trabalhe .formulario input[type="submit"]:hover {
+  background-color: #6e3f24;
+}
+
+
+/* ===== 9. PÁGINA EXTRA (container5) ============================ */
+.extra-section {
+  margin-bottom: 2rem;
+  background-color: var(--branco);
+  padding: 2rem;
+  border-left: 5px solid var(--dourado);
+  border-radius: 6px;
+  color: #333;
+}
+.extra-section h2,
+.extra-section h1 {
+  color: var(--marrom);
+  margin-bottom: 1rem;
+}
+.extra-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.dicas-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.dica {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 300px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+.dica:hover {
+  transform: translateY(-5px);
+}
+.dica img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+}
+.dica h2 {
+  color: var(--marrom);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.dica p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.dica a {
+  color: var(--dourado);
+  font-weight: bold;
+  text-decoration: none;
+}
+.dica a:hover {
+  text-decoration: underline;
+}
+
+/* ===== 10. RESPONSIVIDADE ======================================= */
+@media (max-width: 768px) {
+  .menu { flex-direction: column; align-items: center; }
+  .hero-content h1 { font-size: 2rem; }
+  .container3, .container4 { padding: 1.5rem; }
+  .btn-primary, .btn-ver-produtos { width: 100%; text-align: center; }
+  .container5 { padding: 2rem 1rem; }
+  .dica { width: 100%; }
+}
