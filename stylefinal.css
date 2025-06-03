@@ -1,24 +1,3 @@
-/* =============================================
-   PRINCIPIA – CSS UNIFICADO (v1.1)
-   -------------------------------------------------
-   Estrutura:
-   1.  Reset & Variáveis Globais
-   2.  Utilidades & Containers
-   3.  Componentes Compartilhados (Header, Menu, Botões, Footer)
-   4.  Seções Comuns do Index
-   5.  Página EMPRESA       (container1)
-   6.  Página PORTFÓLIO     (container2)
-   7.  Página CONTATO       (container3)
-   8.  Página TRABALHE      (container4)
-   9.  Página EXTRA         (container5)
-  10.  Responsividade
-   -------------------------------------------------
-   ➜  IMPORTANTE
-   ►  Substitua a classe "container" em cada página pelo respectivo
-      containerX indicado nos títulos acima (ex.: container1 na Empresa).
-   ►  O index pode permanecer usando .container, pois ele já é único.
-   =============================================*/
-
 /* ===== 1. RESET & VARIÁVEIS GLOBAIS ============================= */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
